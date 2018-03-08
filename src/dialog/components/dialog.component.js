@@ -10,31 +10,32 @@ class Dialog extends Component {
         }
     }
     
-    toggleDialog(v) {
-        const vid = document.getElementById("myVideo");
-        this.setState({ dialogActive: !this.state.dialogActive });
-        if(this.state.dialogActive) {
-            vid.play();
-        }
+    toggleDialog = () => {
+        this.setState((prevState) => ({ dialogActive: !prevState.dialogActive }), () => {
+            if(this.refs.vidRef) {
+                this.refs.vidRef.play();
+            }
+        });
     }
 
     render() {
 
+        const videoStyle = {
+            mixBlendMode: 'multiply'
+          };
+
         return(
             <div>
-                <h1>Component</h1>
-                <button className="button" onClick={() => this.toggleDialog('val')}>
+                <button className="button" onClick={this.toggleDialog}>
                     { this.state.buttonName }
                 </button>
 
                 { this.state.dialogActive &&
-                    <div>
-                        <video data-depth='50' height='540' id='myVideo' width='620'>
-                            <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ink4.mp4" type="video/mp4" />
+                    <div className="dialog">>
+                        <video style={videoStyle} ref="vidRef" height='540' width='620' src={this.props.videoConfig.videoUrl}>
                         </video>
-                        
-                        <div className="dialog">
-                            {this.props.data.content}
+                        <div className="dialog__content">
+                         
                         </div>
                     </div>
                 }

@@ -4,38 +4,33 @@ import './App.css';
 
 //https://next.json-generator.com/api/json/get/E1qqRES84
 
+//https://streamable.com/
+
+//https://www.videezy.com/free-video/ink-drop
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      dialogContent: '',
+    constructor() {
+        super();
+        this.state = {
+            dialogContent: '',
+        }
 
+        this.dialogConfigObj = {
+            videoUrl: '/bg.mp4'
+        }
     }
-  }
-
-  componentDidMount() {
-    this.getDialogContent();
-  }
-
-  getDialogContent() {
-    fetch('https://next.json-generator.com/api/json/get/E1qqRES84')
-      .then(resp => resp.json())
-      .then(data => {
-          this.setState({ dialogContent: data[0] })
-      });
-  }
-
-  render() {
-
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Blend dialog</h1>
-        </header>
-        <Dialog data={this.state.dialogContent}/>
-      </div>
-    );
-  }
+    
+    render() {
+        const appStyle = {
+            backgroundImage: 'url("https://wallpapertag.com/wallpaper/full/4/6/a/269386-free-download-halloween-wallpaper-1920x1080-for-desktop.jpg")',
+            height: '100vh'
+        }
+        return (
+            <div className="App" style={appStyle}>
+                <Dialog videoConfig={this.dialogConfigObj}/>
+            </div>
+        );
+    }
 }
 
 export default App;

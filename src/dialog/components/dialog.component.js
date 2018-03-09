@@ -18,12 +18,12 @@ class Dialog extends Component {
         });
     }
 
+    
+    videoStyle = {
+        mixBlendMode: 'multiply'
+    };
+
     render() {
-
-        const videoStyle = {
-            mixBlendMode: 'multiply'
-          };
-
         return(
             <div>
                 <button className="button" onClick={this.toggleDialog}>
@@ -32,7 +32,7 @@ class Dialog extends Component {
 
                 { this.state.dialogActive &&
                     <div className="dialog">>
-                        <video style={videoStyle} ref="vidRef" height='540' width='620' src={this.props.videoConfig.videoUrl}>
+                        <video style={this.videoStyle} ref="vidRef" height='540' width='620' src={this.props.videoConfig.videoUrl}>
                         </video>
                         <div className="dialog__content">
                          

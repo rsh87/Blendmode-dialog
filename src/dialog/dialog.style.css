@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Eater');
+
+
+/* Skew in transform: skew(5deg, 5deg); */
+.dialog {
+
+}
+
+.dialog__button {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #fff;
+    padding: 11px;
+    border-radius: 5px;
+    transition: background-color .3s ease;
+}
+
+.dialog__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    min-width: 600px;
+}
+
+.dialog__content {
+    z-index: 1;
+    max-width: 40%;
+    transform: scale(.7);
+    opacity: 0;
+    transition: transform 1.5s ease, opacity 1.5s ease;
+}
+
+.dialog__content_visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.dialog__content-text {
+    font-family: 'Eater', cursive;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: medium;
+}
+
+.dialog__close {
+    color: #dec17e;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #46372b;
+    padding: 11px;
+    border-radius: 5px;
+    transition: background-color .3s ease;
+}
+
+.dialog__close:hover {
+    background-color: #46372b;
+}
+
+.dialog__video {
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 100%;
+}

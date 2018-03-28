@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     dialogConfigObj = {
-        videoUrl: '/bg.mp4'
+        videoUrl: '/bg7.mp4'
     }
     
     render() {
